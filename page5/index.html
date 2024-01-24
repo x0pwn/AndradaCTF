@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Web Exploration CTF - Clue 1</title>
+</head>
+<body>
+    <header>
+        <h1>Break into this login page, using the same methods we used before.</h1>
+    </header>
+    <main>
+        <label for="usernameInput">Username:</label>
+        <input type="text" id="usernameInput" placeholder="Enter the hidden username">
+        <label for="passwordInput">Password:</label>
+        <input type="password" id="passwordInput" placeholder="Enter the hidden password">
+        <button onclick="checkCredentials()">Continue Your Mission</button>
+        
+        <div id="hiddenUsername" style="display: none;">john</div>
+    </main>
+
+    <script src="script.js"></script>
+    </main>
+    <script>
+        function checkCredentials() {
+            const enteredUsername = document.getElementById('usernameInput').value.toLowerCase(); // Convert to lowercase for case-insensitivity
+            const enteredPassword = document.getElementById('passwordInput').value; // Password is not case-sensitive
+
+            const hiddenUsernameBase64 = "am9obg==";
+            const hiddenPasswordBase64 = "QXBwbGVTZWVk";
+
+            const hiddenUsername = atob(hiddenUsernameBase64);
+            const hiddenPassword = atob(hiddenPasswordBase64);
+
+            if (enteredUsername === hiddenUsername && enteredPassword === hiddenPassword) {
+                alert('Congratulations! You have successfully completed the challenge.');
+                window.location.href = '../completed.html'; 
+            } else {
+                alert('Incorrect username or password. Try again.');
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
