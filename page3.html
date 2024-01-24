@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Web Exploration CTF - Clue 1</title>
+</head>
+<body>
+    <header>
+        <h1>Clue 2: Ciphers</h1>
+        <p>You must decode this message to move on, <b>ebg13_punyyratr.</b></p>
+    </header>
+    <main>
+        <p>You've made it to the next level. Rotate the characters until you find the correct words.</p>
+        <br>
+        <input type="text" id="keyInput" placeholder="Enter the key">
+        
+        <button onclick="checkKey()">Continue Your Mission</button>
+    </main>
+    <script>
+        function checkKey() {
+            const enteredMessage = document.getElementById('keyInput').value.trim().toLowerCase(); 
+
+            const correctMessageBase64 = 'cm90MTNfY2hhbGxlbmdlCg==';
+
+            const correctMessage = atob(correctMessageBase64);
+
+            if (enteredMessage === correctMessage.trim().toLowerCase()) {
+                alert('Well done!');
+                window.location.href = 'page4/index.html'; 
+            } else {
+                alert('Incorrect message.');
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

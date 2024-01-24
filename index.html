@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Web Exploration CTF</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome, Andrada Students!</h1>
+        <p>Your mission, should you choose to accept it, is to uncover the hidden flag.</p>
+    </header>
+    <main id="main">
+        <p>Explore the website, follow the clues, and decode the mystery!</p>
+        <p style="color:#333;">this_is_the_key</p>
+        
+        <input type="text" id="keyInput" placeholder="Enter the key">
+
+        <button onclick="checkKey()">Start Your Mission</button>
+    </main>
+    <script>
+        function checkKey() {
+            const enteredKey = document.getElementById('keyInput').value.toLowerCase(); // Convert to lowercase for case-insensitivity
+
+            // Replace 'your_secret_key' with the actual key you set for the challenge
+            const correctKey = 'this_is_the_key';
+
+            // Check if the entered key is correct
+            if (enteredKey === correctKey) {
+                alert('Correct key! Proceed to the next level.');
+                window.location.href = 'page2.html'; // Redirect to the next page
+            } else {
+                alert('Incorrect key. Try again.');
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
